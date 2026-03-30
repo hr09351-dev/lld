@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MCP Client Test</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    button { padding: 10px 20px; font-size: 16px; cursor: pointer; }
+    pre { background: #f0f0f0; padding: 10px; border-radius: 5px; margin-top: 10px; max-height: 400px; overflow: auto; }
+  </style>
+  <script src="zomato.js"></script>
+</head>
+<body>
+  <h1>MCP HTTP Client Test</h1>
+  <button id="run">Run ls -la - ps</button>
+  <pre id="output">Output will appear here...</pre>
+<script>
+// function findPeak(arr) {
+//     let low = 0;
+//     let high = arr.length - 1;
+
+//     while (low < high) {
+//         let mid = Math.floor((low + high) / 2);
+//          //console.log(mid, low);
+//         if (arr[mid] < arr[mid + 1]) {
+//             low = mid + 1;   // peak is on the right
+//         } else {
+//             high = mid;      // peak is on the left or mid
+//         }
+//     }
+//      console.log(high, low);
+//     return arr[low]; // or return low for index
+// }
+
+// // Example
+// const arr = [1,8,5,7,21,30,29,28,23];
+// console.log(findPeak(arr)); // Output: 20
+</script>
+  <!-- <script>
+    const button = document.getElementById("run");
+    const output = document.getElementById("output");
+
+    button.addEventListener("click", async () => {
+      output.textContent = "Running command...";
+
+      try {
+        const response = await fetch("http://72.61.232.224:4001/run_command", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ command: "ls -la" })
+        });
+
+        const text = await response.text();
+        const contentType = response.headers.get("content-type") || "";
+
+        if (contentType.includes("application/json")) {
+          try {
+            const data = JSON.parse(text);
+            output.textContent = data.output || JSON.stringify(data, null, 2);
+          } catch (err) {
+            output.textContent = "Error parsing JSON: " + err.message;
+            console.error("JSON parse error:", err);
+          }
+        } else {
+          // Server returned HTML or plain text
+          output.textContent = "Server returned non-JSON response:\n" + text;
+          console.warn("Non-JSON response:", text);
+        }
+
+      } catch (err) {
+        output.textContent = "Fetch error: " + err.message;
+        console.error("Fetch error:", err);
+      }
+    });
+  </script> -->
+  <!-- <script>
+   let a = [1,2,3,4,5,6,7,8,9];
+    let x = null;
+    let l = null; 
+    let m = null;
+   for(let i = 0; i < a.length; i++){    
+    
+    if(l === null){
+       l = {value : a[i], next : null};
+     x = l;
+    }else{
+     x.next  = {value : a[i], next : null};
+     x = x.next;
+    }
+   
+   
+
+   }
+  console.log(l);
+//  function fr(){
+//    let s = l;
+//    let f = l;
+//    while(f !== null && f.next !== null){
+//      s = s.next;
+//      f = f.next.next;   
+//    }
+// console.log(s);
+// }
+
+function rev(l){
+let y = null;
+while(l !== void 0){
+if(y == null){ y = {value : l.value, next : null}}
+else{
+  y = {value : l.value, next : y};
+}
+  l = l.next ?? undefined;
+};
+return y;
+}
+
+
+ console.log(l, rev(l));
+
+
+
+
+
+
+  </script> -->
+  <!-- <script>
+    let y = [8,4, 67, 65, 24, 54, 12, 100, 7,1];
+    for(let i = 0 ; i < y.length; i++ ){
+      for(let j = i + 1; j < y.length; j++){
+     if(y[i] > y[j]){
+       [y[i], y[j]] = [y[j], y[i]];
+     }
+      }
+    }
+    console.log(y);
+
+
+
+
+  </script> -->
+  <!-- <script>
+
+    //two pointer 
+    let y = [1,2,6];
+    let x = [  7, 56, 78, 79, 80, 81, 82, 83, 84, 85, 86];
+    let length = y.length + x.length;
+    let a  = [];
+    let i = 0;
+   while(i < length){
+      console.log(i);
+    if(x.length == 0 || y.length == 0){
+       
+      if(x.length == 0){
+         a = a.concat(y);
+      }else{
+       a = a.concat(x);
+      }
+      break;
+    }
+    if(y[0] > x[0]){
+      
+        a.push(x[0]);
+        x.shift();
+    }else{
+     
+       a.push(y[0]);
+        y.shift();
+    }
+   
+    i++
+   }
+   console.log(a);
+
+
+
+
+
+
+  </script> -->
+</body>
+</html>
